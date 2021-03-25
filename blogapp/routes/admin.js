@@ -39,7 +39,7 @@ router.post('/categorias/nova', (req, res)=>{
             slug: req.body.slug
         }
         new Categoria(novaCategoria).save().then(()=>{
-            req.flash('success-msg', "Categoria criada com sucesso!")
+            req.flash('success_msg', "Categoria criada com sucesso!")
             res.redirect('/admin/categorias')
         }).catch((err)=>{
             req.flash('error_msg', 'Erro ao criar categoria. Tente novamente.')
@@ -62,7 +62,7 @@ router.post('/categorias/edit', (req, res) =>{
         categoria.nome = req.body.nome
         categoria.slug = req.body.slug
         categoria.save().then(() => {
-            req.flash('success-msg', 'Categoria editada com sucesso')
+            req.flash('success_msg', 'Categoria editada com sucesso')
             res.redirect('/admin/categorias')
         }).catch((err) => {
             req.flash('error_msg', 'Erro salvando a categoria')
@@ -76,7 +76,7 @@ router.post('/categorias/edit', (req, res) =>{
 //Rota para deletar uma 'Categoria'
 router.post('/categorias/deletar', (req, res) => {
     Categoria.deleteOne({_id: req.body.id}).then(() =>{
-        req.flash('success-msg', 'Categoria deletada com sucesso!')
+        req.flash('success_msg', 'Categoria deletada com sucesso!')
         res.redirect('/admin/categorias')
     }).catch((err) => {
         req.flash('error_msg', 'Erro ao deletar categoria')
@@ -121,7 +121,7 @@ router.post('/postagens/nova', (req, res)=>{
             slug: req.body.slug
         }
         new Postagem(novaPostagem).save().then(() => {
-            req.flash('success-msg', 'Postagem criada com sucesso BLABLA')
+            req.flash('success_msg', 'Postagem criada com sucesso BLABLA')
             res.redirect('/admin/postagens')
         }).catch((err) => {
             req.flash('error_msg', 'Erro salvando a postagem')
@@ -150,7 +150,7 @@ router.post('/postagens/edit', (req, res) =>{
         postagem.categoria = req.body.categoria,
         postagem.slug = req.body.slug
         postagem.save().then(() => {
-            req.flash('success-msg', 'Postagem editada com sucesso')
+            req.flash('success_msg', 'Postagem editada com sucesso')
             res.redirect('/admin/postagens')
         }).catch((err) => {
             req.flash('error_msg', 'Erro salvando a postagem')
@@ -164,7 +164,7 @@ router.post('/postagens/edit', (req, res) =>{
 //Rota para deletar uma 'postagem'
 router.post('/postagens/deletar', (req, res) => {
     Postagem.deleteOne({_id: req.body.id}).then(() =>{
-        req.flash('success-msg', 'Postagem deletada com sucesso!')
+        req.flash('success_msg', 'Postagem deletada com sucesso!')
         res.redirect('/admin/postagens')
     }).catch((err) => {
         req.flash('error_msg', 'Erro ao deletar postagem')
