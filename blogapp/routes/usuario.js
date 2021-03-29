@@ -70,5 +70,10 @@ router.post('/login', passport.authenticate('local', {
 }), (req, res) => {
     res.redirect('/');
 })
+router.get('/logout', (req, res) => {
+    req.logOut()
+    req.flash('success_msg', 'Autenticação encerrada!')
+    res.redirect('/')
+})
 
 module.exports = router
